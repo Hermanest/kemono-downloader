@@ -18,9 +18,10 @@ static class KemonoParser {
         var postMeta = new Regex(
             @"<meta name=""id"" content=""\d*"">")
             .Match(source).Value;
-        post.Id = int.Parse(new Regex(
+        int.TryParse(new Regex(
             @".*content=""|"">")
-            .Replace(postMeta, ""));
+            .Replace(postMeta, ""), out var id);
+        post.Id = id;
 
         var postTitle = new Regex(
             @"class=""post__title"">\s*?<span>.*?</span>")

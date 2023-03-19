@@ -86,7 +86,7 @@ class Program {
                     continue;
                 }
                 Console.Write("downloading ");
-                var bytes = _helper.GetBytes("https://" + att);
+                var bytes = _helper.GetBytes(att);
                 File.WriteAllBytes(attPath, bytes);
                 Console.WriteLine("done'd");
             }
